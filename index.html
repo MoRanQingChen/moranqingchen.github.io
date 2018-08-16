@@ -1,50 +1,147 @@
 <!DOCTYPE html>
-<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <meta content="telephone=no" name="format-detection" />
-    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
-    <title></title>
-    <link rel="stylesheet" href="index.css">
+	<meta charset="utf-8">
+	<title>ETH</title>
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+	/>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="main">
-        <img src="image/bg.jpg" class="bg-pic">
-        <div class="video-circle">
-            <video src="./image/source.mp4" class="source" poster="image/poster.png" playsinline webkit-playsinline x5-playsinline="true" x-webkit-airplay="allow"></video>
-            <img src="image/play.png" class="play">
-        </div>
-        <img src="image/get.png" class="get-immediately">
-    </div>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="main"></div>
+	<!-- ECharts单文件引入 -->
+	<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+	<script id="jp"></script>
+	<script type="text/javascript">
+		var jp = document.querySelector('#jp')
+		window.onload = function () {
+			var main = document.querySelector('#main')
+			if (/(Android|iPhone)/.test(navigator.userAgent)) {
+				main.style.width = window.innerHeight + 'px'
+				main.style.height = window.innerWidth + 'px'
+				main.style.transform = 'translate(-' + (window.innerHeight - window.innerWidth) / 2 + 'px,' + (window.innerHeight - window.innerWidth) / 2 + 'px) rotate(90deg)'
+			} else {
+				main.style.width = window.innerWidth + 'px'
+				main.style.height = window.innerWidth / 2.5 + 'px'
+			}
+			// 路径配置
+			var series = []
+			var xAxis = []
+			var option = {
+				title: {
+					text: 'ETH一小时内变化',
+					subtext: '墙内临时用'
+				},
+				tooltip: {
+					trigger: 'axis'
+				},
+				legend: {
+					data: ['ETH']
+				},
+				toolbox: {
+					show: true,
+					feature: {
+						mark: { show: true },
+						dataView: { show: true, readOnly: false },
+						magicType: { show: true, type: ['line', 'bar'] },
+						restore: { show: true },
+						saveAsImage: { show: true }
+					}
+				},
+				calculable: true,
+				xAxis: [
+					{
+						type: 'category',
+						boundaryGap: false,
+						data: []
+					}
+				],
+				yAxis: [
+					{
+						type: 'value',
+						scale: true,
+						boundaryGap: [0.01, 0.01]
+					}
+				],
+				series: [
+					{
+						name: 'ETH',
+						type: 'line',
+						data: [],
+						markPoint: {
+							data: [
+								{ type: 'max', name: '最大值' },
+								{ type: 'min', name: '最小值' }
+							]
+						},
+						markLine: {
+							data: [
+								{ type: 'average', name: '平均值' }
+							]
+						}
+					},
+				]
+			};
+			var xhr = new XMLHttpRequest();
+
+			require.config({
+				paths: {
+					echarts: 'http://echarts.baidu.com/build/dist'
+				}
+			});
+			// 使用
+			require(
+				[
+					'echarts',
+					'echarts/chart/line',
+					'echarts/chart/bar'
+				],
+				function (ec) {
+					// 基于准备好的dom，初始化echarts图表
+					var myChart = ec.init(document.getElementById('main'));
+					window.JP = function (data) {
+							if (series.length >= 720) {
+								series.shift(1)
+								xAxis.shift(1)
+							}
+							console.log(data)
+							if(Array.isArray(data.series)){
+								console.log(data)
+								series = series.concat(data.series)
+								xAxis = xAxis.concat(data.xAxis)
+							}else{
+								series.push(data.series)
+								xAxis.push(data.xAxis)
+							}
+							// 为echarts对象加载数据 
+							option.xAxis[0].data = xAxis
+							option.series[0].data = series
+							myChart.setOption(option);
+							document.title = series[series.length-1]
+					};
+					// xhr.open('get', './init')
+					// xhr.send()
+					jp.src = 'http://v83264.natappfree.cc/init'
+					setInterval(() => {
+						// xhr.open('get', './now')
+						if(window.oS){
+							document.body.removeChild(window.oS)
+						}
+						window.oS = document.createElement('script')
+						oS.src = 'http://v83264.natappfree.cc/now?'+new Date().getTime()
+						document.body.appendChild(window.oS)
+						// xhr.send()
+					}, 5000)
+				}
+			);
+		}
+
+	</script>
 </body>
-<script>
-    var ua = window.navigator.userAgent,
-        playEle = document.querySelector('.play'),
-        videoEle = document.querySelector('.source'),
-        getEle = document.querySelector('.get-immediately');
-    document.addEventListener('WeixinJSBridgeReady', function () {
-        ua.indexOf('iPhone') != -1 && videoEle.play();
-    });
-    playEle.addEventListener('click', function () {
-        videoEle.play();
-    });
-    videoEle.addEventListener('play', function () {
-        playEle.classList.add('none');
-    });
-    videoEle.addEventListener('pause', function () {
-        playEle.classList.remove('none');
-    });
-    videoEle.addEventListener('click', function () {
-        videoEle.pause();
-    });
-    getEle.addEventListener('click', function () {
-        window.location.href = "https://item.m.jd.com/product/6023570.html";
-    });
-
-</script>
-
-</html>
