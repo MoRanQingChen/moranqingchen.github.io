@@ -1,31 +1,189 @@
 <!DOCTYPE html>
-<html lang="en" style="width:100%;height:100%">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>LJ视频</title>
+<meta name="robots" content="all">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="HandheldFriendly" content="true">
+<meta name="format-detection" content="telephone=no">
+<meta name="applicable-device" content="mobile">
+<link rel="stylesheet" href="./static/film_select.css">
+
 <style>
-    *{
-        margin: 0;
-        padding: 0;
-        border: 0;
+    .figure_pic>i>img{
+        opacity: 0;
     }
+    .mod_film_search{
+        position: relative;
+        background-color: #EFEFEF;
+        padding: 9px;
+        border-bottom: 1px solid #b6b7b7;
+    }
+    .search_input{
+        border-radius: 6px;
+        background-color: #FFF;
+        position: relative;
+    }
+    .search_text_input{
+        border: none;
+        padding: 4px;
+        width: 90%;
+        background: transparent;
+        margin-left: 33px;
+        font-size: 14px;
+        color: #979797;
+    }
+    .search_icon{
+        position: absolute;
+        left: 4px;
+        top: 3px;
+        width: 22px;
+        height: 22px;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAASdAAAEnQB3mYfeAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDQvMTcvMThd5WsJAAACjUlEQVRYhe2Y33XaMBSHv/T0nXSCeIOwQdwFbukEJRuQDZwN6AT1CEQTmAlKNiAb4Anog65jIST/T+Ehv3M4lrCQPq50r650czweuWZ9uTRAmz4Bx+rrmB8bY+ZACtx6rw7ATkSKMf0D3PR1EmNMAmTAApi1NC+BDZAPhe0MaIy5BdbArxagGPQWWIrIfnJAY8wCyL3Bt1jrbPxB1cop1so/nFclsBKRfDJAY8wS+OOBZV2nTGHXHuiziGSjAQNwTyKy7tJxpK819Sx06isKqB761/nqp4hshsB5fRYOZGufTXEwd8qPY+EARGSHXZvvY6jzRRUE1Om41+rvPou6TQr5rNUZsGpqH7Ngps/SKU8mdZA3ra6arHgGqCHlTqtrETlMDajK9DnDhqOgQhZMnfIgj+0iXTalVgcBbj/QepUKb8wzhQAr5ygC76bWTp+z2Dq8dLpVOOV5qMEJoG5LV6UTwL6Zxv/Qpac4dcr7UIMQ4Gvgxx+lpCrEZi8EWHnWQ9s+OYGq+LeNNQgBuklBNICOle73VVYTTUTOADVrqSJ89oFWrJKEktPM6UQxJ6m2uDtaso0hMsasqDeEvGnHakpY99RJw/cpjpDar5u0lkDSBNgUZpZOeaMdTwkH9pTXuN9HAdVij1qdAYUu7KFwCw/ujQ77/ZBT3Qv26LjvCJZgc7/QefoVSAetwQCkeyKrQHOg8AdQz0+xYcoHe8Iun8pJGiH73CwkCvQQeF1SB/g54duFLdbyO/0DRRfIIXczKdYCTVcgrl6wR4fC66cTZG9Ab5AF1mIJ9b6618+OwPT3hRwFOIXaIC+dbqEgKXUWdY8Tfi5uwUoBS34TkcPVAMI75Ap7O7uBK7JgTP8App4sqAYgRewAAAAASUVORK5CYII=');
+        background-size: 22px;
+    }
+
 </style>
-<body style="width:100%;height:90%">
-    <iframe src="http://vip.26db.cn/d/?url=https://www.iqiyi.com/v_19rqt8cix8.html?vfm=2008_aldbd" style="width:100%;height:100%"></iframe>
-    <button onclick="play('https://www.iqiyi.com/v_19rqt8cix8.html?vfm=2008_aldbd')">33</button>
-    <button onclick="play('https://www.iqiyi.com/v_19rqt8ck7o.html?vfm=2008_aldbd')">34</button>
-    <button onclick="play('https://www.iqiyi.com/v_19rqt8clt0.html?vfm=2008_aldbd&fv=p_02_01')">35</button>
-    <button onclick="play('https://www.iqiyi.com/v_19rqppn0k4.html?vfm=2008_aldbd&fv=p_02_01')">36</button>
-    <input type="text">
-    <button onclick="play()">自定义</button>
-    <script>
-        function play(url){
-            url = 'http://vip.26db.cn/d/?url='+(url||document.querySelector('input').value)
-            document.querySelector('iframe').src = url
-        }
-    </script>
-</body>
-</html>
+
+<script src="./static/stats.js" name="MTAH5" sid="500000341" cid="500000342"></script></head>
+<body class="page_film_select">
+
+<!-- 整个页面未加载 loading 开始 -->
+<div class="g_container_loading" style="display: none;">
+    <div class="loading_con">
+        <i class="icon_loading"></i>
+        <div class="loading_text">努力加载中</div>
+    </div>
+</div>
+
+<!-- 整个页面未加载 loading 结束 -->
+<!--套餐页面 开始-->
+<div class="main_container" style="">
+    <!-- <div class="mod_film_search">
+        <div class="search_input">
+            <input type="text" class="search_text_input" value="">
+            <i class="search_icon"></i>
+        </div>
+    </div> -->
+    <!--分类 开始-->
+    <div class="mod_film_cate">
+        <div class="slide_show_out" id="film-type-list">
+            <div class="slide_show">
+                <ul class="show_list">
+                    <li class="film-type item" data-ftype="tv">
+                        <a href="javascript:;">电视剧</a>
+                    </li>
+                    <li class="film-type item current" data-ftype="movie">
+                        <a href="javascript:;">电影</a>
+                    </li>
+                    <li class="film-type item" data-ftype="cartoon">
+                        <a href="javascript:;">动漫</a>
+                    </li>
+                    <li class="film-type item" data-ftype="variety">
+                        <a href="javascript:;">综艺</a>
+                    </li>
+                    <li class="film-type item" data-ftype="children">
+                        <a href="javascript:;">少儿</a>
+                    </li>
+                    <li class="film-type item" data-ftype="doco">
+                        <a href="javascript:;">纪录片</a>
+                    </li>
+                    <li class="film-type item" data-ftype="music">
+                        <a href="javascript:;">音乐</a>
+                    </li>
+                    <li class="film-type item" data-ftype="knowledge">
+                        <a href="javascript:;">知识</a>
+                    </li>
+                    <li class="film-type item" data-ftype="666" style="display: none;">
+                        <a href="javascript:;">666福利</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="film-cate-list"><div class="slide_show_out"><div class="slide_show"><ul class="show_list"><li class="item cate-item " data-cate-prop="sort" data-cate-value="19"><a href="javascript:void(0);">最新</a></li><li class="item cate-item current" data-cate-prop="sort" data-cate-value="17"><a href="javascript:void(0);">最热</a></li><li class="item cate-item " data-cate-prop="sort" data-cate-value="16"><a href="javascript:void(0);">好评</a></li></ul></div></div><div class="slide_show_out"><div class="slide_show"><ul class="show_list"><li class="item cate-item current" data-cate-prop="itype" data-cate-value="-1"><a href="javascript:void(0);">全部</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="25"><a href="javascript:void(0);">院线</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="0"><a href="javascript:void(0);">动作</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="1"><a href="javascript:void(0);">冒险</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="3"><a href="javascript:void(0);">喜剧</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="2"><a href="javascript:void(0);">爱情</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="5"><a href="javascript:void(0);">战争</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="6"><a href="javascript:void(0);">恐怖</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="7"><a href="javascript:void(0);">犯罪</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="8"><a href="javascript:void(0);">悬疑</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="9"><a href="javascript:void(0);">惊悚</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="10"><a href="javascript:void(0);">武侠</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="4"><a href="javascript:void(0);">科幻</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="19"><a href="javascript:void(0);">音乐</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="20"><a href="javascript:void(0);">歌舞</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="16"><a href="javascript:void(0);">动画</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="17"><a href="javascript:void(0);">奇幻</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="18"><a href="javascript:void(0);">家庭</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="15"><a href="javascript:void(0);">剧情</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="14"><a href="javascript:void(0);">伦理</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="22"><a href="javascript:void(0);">记录</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="13"><a href="javascript:void(0);">历史</a></li><li class="item cate-item" data-cate-prop="itype" data-cate-value="24"><a href="javascript:void(0);">传记</a></li></ul></div></div><div class="slide_show_out"><div class="slide_show"><ul class="show_list"><li class="item cate-item current" data-cate-prop="iyear" data-cate-value="-1"><a href="javascript:void(0);">全部</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="20"><a href="javascript:void(0);">2019</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2018"><a href="javascript:void(0);">2018</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2017"><a href="javascript:void(0);">2017</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2016"><a href="javascript:void(0);">2016</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2015"><a href="javascript:void(0);">2015</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2014"><a href="javascript:void(0);">2014</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2013"><a href="javascript:void(0);">2013</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2012"><a href="javascript:void(0);">2012</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2011"><a href="javascript:void(0);">2011</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2010"><a href="javascript:void(0);">2010</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2009"><a href="javascript:void(0);">2009</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2008"><a href="javascript:void(0);">2008</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2007"><a href="javascript:void(0);">2007</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2006"><a href="javascript:void(0);">2006</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2005"><a href="javascript:void(0);">2005</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2004"><a href="javascript:void(0);">2004</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2003"><a href="javascript:void(0);">2003</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2002"><a href="javascript:void(0);">2002</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2001"><a href="javascript:void(0);">2001</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="2000"><a href="javascript:void(0);">2000</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="1990"><a href="javascript:void(0);">90年代</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="1980"><a href="javascript:void(0);">80年代</a></li><li class="item cate-item" data-cate-prop="iyear" data-cate-value="9999"><a href="javascript:void(0);">其他</a></li></ul></div></div><div class="slide_show_out"><div class="slide_show"><ul class="show_list"><li class="item cate-item current" data-cate-prop="iarea" data-cate-value="-1"><a href="javascript:void(0);">全部</a></li><li class="item cate-item" data-cate-prop="iarea" data-cate-value="1"><a href="javascript:void(0);">欧美</a></li><li class="item cate-item" data-cate-prop="iarea" data-cate-value="2"><a href="javascript:void(0);">华语</a></li><li class="item cate-item" data-cate-prop="iarea" data-cate-value="3"><a href="javascript:void(0);">日韩</a></li><li class="item cate-item" data-cate-prop="iarea" data-cate-value="4"><a href="javascript:void(0);">泰国</a></li><li class="item cate-item" data-cate-prop="iarea" data-cate-value="5"><a href="javascript:void(0);">印度</a></li><li class="item cate-item" data-cate-prop="iarea" data-cate-value="6"><a href="javascript:void(0);">其他</a></li></ul></div></div><div class="slide_show_out"><div class="slide_show"><ul class="show_list"><li class="item cate-item current" data-cate-prop="iawards" data-cate-value="-1"><a href="javascript:void(0);">全部</a></li><li class="item cate-item" data-cate-prop="iawards" data-cate-value="0"><a href="javascript:void(0);">奥斯卡</a></li><li class="item cate-item" data-cate-prop="iawards" data-cate-value="1"><a href="javascript:void(0);">高分小众</a></li><li class="item cate-item" data-cate-prop="iawards" data-cate-value="2"><a href="javascript:void(0);">电影节</a></li><li class="item cate-item" data-cate-prop="iawards" data-cate-value="3"><a href="javascript:void(0);">系列</a></li></ul></div></div></div>
+    </div>
+
+    <div class="mod_selected_cate" style="display: none;">
+        <div class="selected_cate"><span class="txt">电影</span><span class="dot"></span><span class="txt">最热</span></div>
+    </div>
+
+    <!--影片模块 开始-->
+    <div class="mod_film_box iscroll" style="">
+        <div class="mod_figures mod_figures_v">
+            <ul class="mod_figure">
+            </ul>
+        </div>
+    </div>
+
+    <!--无内容-->
+    <div class="mod_no_match iscroll" style="display: none;">
+        <i class="icon_sad"></i>
+        <p class="tit">非常抱歉，暂时没有找到相关内容！</p>
+        <p class="txt">建议您切换筛选条件试试。</p>
+    </div>
+</div>
+
+<!--弹框区域 -->
+<!--遮罩 开始-->
+<div class="g_pop_mask" style="display:none;"></div>
+<!--遮罩 结束-->
+<!--接口加载中 开始-->
+<div class="g_pop g_pop_loading" style="display: none;">
+    <div class="pop_wrap">
+        <div class="pop_con">
+            <i class="icon_loading"></i>
+            <p class="txt">加载中...</p>
+        </div>
+    </div>
+</div>
+<!--接口加载中 结束-->
+
+
+<script type="text/javascript" src="./static/zepto.js"></script>
+<script type="text/javascript" src="./static/iscroll.js"></script>
+<script type="text/javascript" src="./static/vip.openstats.js"></script>
+<script type="text/javascript" src="./static/ping_video.js"></script>
+
+<script type="text/javascript">
+window.jpnb=()=>[...document.querySelectorAll('.mod_film_box ul.mod_figure a')].forEach(a=>a.href=a.href.replace(/\.html$/,'').replace('http://m.v.qq.com/x/cover','/movie.html#'))
+var WX_INFO = {hasReady:false};
+//微信接口测速点
+var wxApitime = [];
+wxApitime[0]=new Date();
+
+
+try{
+    document.addEventListener('WeixinJSBridgeReady', function() {WX_INFO.hasReady=true;wxApitime[1]=new Date();},false);
+}catch(e){}
+    seajs.config({
+    base: "//vm.gtimg.cn/tencentvideo_v1/script/film/weixin/v2/"
+});
+
+seajs.on('fetch', function(req) {
+    var uri = req.requestUri || req.uri;
+    if (uri) {
+        uri += (req.uri.indexOf('?') === -1 ? '?' : '&') + 'v=20181216&max_age=31104000';
+        req.requestUri = uri;
+    }
+});
+
+function index_page_init(){
+    seajs.use("allfilm", function(all){
+        all.init();
+    });
+};
+
+index_page_init();
+
+seajs.use("common/report_platform");
+
+if (typeof(pgvMain) == 'function'){
+    pgvMain();
+}
+</script>
+
+
+</body></html>
