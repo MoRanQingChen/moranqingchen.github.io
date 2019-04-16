@@ -6,6 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>老江电影</title>
 </head>
+<script>
+    if(navigator.userAgent.toLowerCase().match(/MicroMessenger/i)=="micromessenger") {
+        document.write(`<div style="
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #efefef;
+    z-index: 99999;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 35%;
+    font-size: 16px;
+">请使用默认浏览器打开！</div>`)
+    }
+</script>
 <body>
     <style>
     *{
@@ -18,7 +33,7 @@
     }
     iframe{
         width: 100%;
-        height: 100%;
+        height: 140%;
         border: 0;
     }
     </style>
@@ -26,7 +41,7 @@
         // http://mv.688ing.com/player
         // https://jx.hezeshi.net/ce/jlexi.php
         var iframe = document.createElement('iframe')
-        iframe.src = 'https://api.sigujx.com/?url=https://m.v.qq.com/x/cover'+location.hash.replace('#','')+'.html'
+        iframe.src = 'https://api.sigujx.com/zy/?url=https://m.v.qq.com/x/cover'+location.hash.replace('#','')+'.html'
         document.body.appendChild(iframe)
         console.log(location.hash)
     </script>
