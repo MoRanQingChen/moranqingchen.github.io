@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纸张选择</title>
+</head>
+<style type="text/css">
+html,body{
+	background-color: #ededed;
+	font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+}
+.page__title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+.page__desc {
+    margin-top: 4px;
+    color: rgba(0,0,0,.5);
+    text-align: left;
+    font-size: 14px;
+}
+.weui-btn_primary:not(.weui-btn_disabled):visited {
+    color: #FFFFFF;
+}
+.weui-btn_primary {
+    background-color: #07C160;
+}
+.weui-btn_block {
+    width: auto;
+}
+.weui-btn {
+	display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px 24px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 17px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 1.41176471;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    position: fixed;
+    left: 5%;
+    bottom: 25px;
+}
+.weui-cell {
+    padding: 16px 16px 16px 0;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+}
+.weui-cells {
+    margin-top: 8px;
+    background-color: #FFFFFF;
+    line-height: 1.41176471;
+    font-size: 17px;
+    overflow: hidden;
+    position: relative;
+    padding-left: 16px;
+}
+.weui-cell__hd{
+	    -webkit-box-flex: .4;
+    -webkit-flex: .4;
+    flex: .4;
+}
+.weui-cell__bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+.weui-input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size: inherit;
+    color: inherit;
+    height: 1.41176471em;
+    line-height: 1.41176471;
+}
+.weui-cells_form input, .weui-cells_form textarea, .weui-cells_form label[for] {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    caret-color: #07C160;
+}
+#write{
+	color: #666;
+	    padding: 25px 20px;
+}
+	#write>b{
+		color:red;
+	}
+	.page__hd {
+    padding: 40px;
+}
+</style>
+<form action="" onsubmit="s()">
+
+<div class="page__hd">
+        <h1 class="page__title">纸张选择</h1>
+        <p class="page__desc">填写宽高进行纸张选择计算</p>
+    </div>
+<div class="weui-cells weui-cells_form">
+	<div class="weui-cell">
+	    <div class="weui-cell__hd"><label class="weui-label">东西</label></div>
+	    <div class="weui-cell__bd">
+	        <input id='w' class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入东西方向米数">
+	    </div>
+	</div>
+	<div class="weui-cell">
+	    <div class="weui-cell__hd"><label class="weui-label">南北</label></div>
+	    <div class="weui-cell__bd">
+	        <input id='h' class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入南北方向米数">
+	    </div>
+	</div>
+</div>
+
+<div id="write"></div>
+<div onclick="s()" class="weui-btn weui-btn_block weui-btn_primary">计算</div><br/><br/>
+</form>
+<body>
+    <script type="text/javascript">
+    document.querySelector('#w').onkeydown = function(e){
+
+　　　　if(e.keyCode == 13){
+			this.blur()
+			s()
+　　　　}
+　　}
+document.querySelector('#h').onkeydown = function(e){
+　　　　if(e.keyCode == 13){
+			this.blur()
+			s()
+　　　　}
+　　}
+function s(){
+	    var w = document.querySelector('#w').value*1000
+    	var h = document.querySelector('#h').value*1000
+    	document.querySelector('#write').innerHTML=""
+		write(w>=h?'比较宽，选用横幅':'比较长，选用纵幅')
+		var papers = (w>=h?
+			[[570,342],[796,499],[1138,746]]:
+			[[349,515],[544,735],[782,1080]]
+		).map(p=>Math.ceil(Math.max(w/p[0],h/p[1])))
+		for(let i=0;i<papers.length;i++){
+			let name = 'A'+(2-i)
+			if(papers[i]<400){
+				write(name+'所用比例尺为'+papers[i]+'符合要求')
+				let need = 0
+				if(papers[i]<100){
+					write(name+'比例尺小于100，以10为间隔向上取整')
+					need = parseInt(Math.ceil((papers[i])/10)*10)
+					write('比例尺应是'+need)
+				}else{
+					write(name+'比例尺大于100，以50为间隔向上取整')
+					need = parseInt(Math.ceil((papers[i])/50)*50)
+					write('比例尺应是'+need)
+				}
+				write('故选用<b>'+name+(w>=h?'横':'纵')+'向</b>，比例尺为<b>1:'+need+'</b>')
+				break;
+			}else{
+				write(name+'比例尺为'+papers[i]+',大于400，尝试下一纸型...')
+				if(i==2){
+					write('无更大纸型，建议选用<b>A0'+(w>=h?'横':'纵')+'向</b>,比例尺为<b>1:'+parseInt(Math.ceil((papers[i])/50)*50+'</b>'))
+				}
+			}
+		}
+}
+
+function write(txt){
+	document.querySelector('#write').innerHTML+=txt+ '<br />'
+}
+    		
+    </script>
+</body>
+</html>
