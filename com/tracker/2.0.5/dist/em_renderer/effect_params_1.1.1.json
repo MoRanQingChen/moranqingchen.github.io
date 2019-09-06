@@ -1,0 +1,34 @@
+{
+  "eyeshadow_default": {
+    "src": "mask_images/sp_msk_eyeshadow_lid.png",
+    "locations": [{"feature":"leye", "xflipped":1}, {"feature":"reye", "xflipped":0}],
+    "padding": [
+      {"percentage": 0.60, "reference": {"feature":"eye", "dim":"width"}},
+      {"percentage": 1.40, "reference": "eyetobrow"},
+      {"percentage": 0.35, "reference": {"feature":"eye", "dim":"width"}},
+      {"percentage": 0.80, "reference": "eyetobrow"}
+    ],
+    "type": "makeupface"
+  },
+  "blush_default": {
+    "src": "mask_images/sephora4_0_rightblush.png",
+    "locations": [{"feature":"leye", "xflipped":1}, {"feature":"reye", "xflipped":0}],
+    "padding": [
+      {"percentage": 1.50, "reference": {"feature":"eye", "dim":"width"}},
+      {"percentage": -0.03, "reference": {"feature":"facebox", "dim":"height"}},
+      {"percentage": -0.10, "reference": {"feature":"eye", "dim":"width"}},
+      {"percentage": 0.42, "reference": {"feature":"facebox", "dim":"height"}}
+    ],
+    "type": "makeupface"
+  },
+  "foundation_default": {
+    "src": "mask_images/mufe_foundation.png",
+    "padding": [
+        {"percentage": 0.2, "reference": {"feature":"facebox", "dim":"width"}},
+        {"percentage": 0.1, "reference": {"feature":"facebox", "dim":"height"}},
+        {"percentage": 0.2, "reference": {"feature":"facebox", "dim":"width"}},
+        {"percentage": 0.0, "reference": {"feature":"facebox", "dim":"height"}}
+    ],
+    "type": "foundation"
+  }
+}
