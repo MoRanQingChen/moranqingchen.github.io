@@ -2,7 +2,7 @@
 
 $(function(){
   // var NewApiRootUrl = 'http://120.132.22.7:8888/xcx/api/';
-  var NewApiRootUrl = 'https://wechatmini.giorgioarmanibeauty.cn/xcx/api/';
+  var NewApiRootUrl = 'http://192.168.100.7:8000/xcx/api/';
   var GoodsDetail = NewApiRootUrl + 'makeup/detailInfo';  //获得商品的详情
   var CartTotal = NewApiRootUrl + 'makeup/total'; // 获取购物车 数量
   var CartAdd = NewApiRootUrl + 'makeup/add'; // 添加商品到购物车

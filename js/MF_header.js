@@ -45,7 +45,7 @@
     Object.defineProperty(e, "__esModule", {
         value: !0
     });
-    var T = (e.WEBPACK_CMS_LIBRARY_URL_DOMAIN = "modiface-vto.lorealchina.com",
+    var T = (e.WEBPACK_CMS_LIBRARY_URL_DOMAIN = "192.168.100.7:8000",
     e.WEBPACK_CMS_API_ENV = "production",
     e.WEBPACK_CMS_API_PREFIX = "//modiface-cms.lorealchina.com/lorealcmsapi-linux/",
     e.WEBPACK_CMS_API_PREFIX_V2 = "//modiface-cms.lorealchina.com/index.php/api/v2/",
@@ -53,7 +53,7 @@
     e.WEBPACK_CMS_API_PREFIX_V3_1 = "//modiface-cms.lorealchina.com/index.php/api/v3.1/",
     e.WEBPACK_WEB_SERVICE_PREFIX = "//a0.modiface.com/lorealwebconsultation-web/api/prod/",
     e.WEBPACK_LASH_IMG_PREFIX = "https://8e1abe4449e8c8b52e67-803e13595e2f1638020d1ded4b94768a.ssl.cf2.rackcdn.com/cms/lash_image/",
-    e.WEBPACK_TRACKER_LICENCE_KEY = "D2E33B4BEB811F40A0414CB42A062BFDC5C1A149C029C08D544BC20C83B866A3B81AC7D74D087A0F0E46FE8AE08FCA0D62EA5B1B191A807F5C6C73CD0ED5268B",
+    e.WEBPACK_TRACKER_LICENCE_KEY = "6F9A5FF037AE53A7AAB66CDF6FC1087CF8A5EA5F74DA098E81E0823BD5E76891347274A09C662B9D478575D08C69F2FFD514BADA9C4F755847D166EACB4E0621",
     e.MODULE_HAIR = "hair",
     e.MODULE_MAKEUP = "makeup",
     e.MODULE_BROWSTYLE = "browstyle",
@@ -419,7 +419,7 @@
     window.MF_CHANNEL_PARENT = {
         rm_callback: null,
         iframe_url_protocol: "https:",
-        iframe_url_domain: "modiface-vto.lorealchina.com",
+        iframe_url_domain: "192.168.100.7:8000",
         iframe_url_path: "/release/",
         sdkEnvironment: "production",
         sdkVersion: "0.14.0",
@@ -471,29 +471,30 @@
             this.fireEvent(_.event, _.data)
         },
         checkOrigin: function(_) {
-            if (new RegExp(/localhost(:|$)+/).test(_))
+            //本地验证
+            // if (new RegExp(/localhost(:|$)+/).test(_))
                 return !0;
-            switch (_) {
-            case "https://a0.modiface.com":
-            case "http://a0dev.modiface.com":
-            case "http://mfefacetracker-dev.modiface.com":
-            case "https://mfefacetracker-dev.modiface.com":
-            case "http://ecommerce.modiface.com":
-            case "https://ecommerce.modiface.com":
-            case "http://loreal-webconsultation-dev.modiface.com":
-            case "https://loreal-webconsultation-dev.modiface.com":
-            case "http://loreal-webconsultation.modiface.com":
-            case "https://loreal-webconsultation.modiface.com":
-            case "http://loreal-webconsultation-eu.modiface.com":
-            case "https://loreal-webconsultation-eu.modiface.com":
-            case "https://modiface-vto.lorealchina.com":
-            case "http://modiface-vto.lorealchina.com":
-            case "https://modiface-vto-dev.lorealchina.com":
-            case "http://modiface-vto-dev.lorealchina.com":
-                return !0;
-            default:
-                return !1
-            }
+            // switch (_) {
+            // case "https://a0.modiface.com":
+            // case "http://a0dev.modiface.com":
+            // case "http://mfefacetracker-dev.modiface.com":
+            // case "https://mfefacetracker-dev.modiface.com":
+            // case "http://ecommerce.modiface.com":
+            // case "https://ecommerce.modiface.com":
+            // case "http://loreal-webconsultation-dev.modiface.com":
+            // case "https://loreal-webconsultation-dev.modiface.com":
+            // case "http://loreal-webconsultation.modiface.com":
+            // case "https://loreal-webconsultation.modiface.com":
+            // case "http://loreal-webconsultation-eu.modiface.com":
+            // case "https://loreal-webconsultation-eu.modiface.com":
+            // case "http://192.168.100.7:8000":
+            // case "http://192.168.100.7:8000":
+            // case "https://modiface-vto-dev.lorealchina.com":
+            // case "http://modiface-vto-dev.lorealchina.com":
+            //     return !0;
+            // default:
+            //     return !1
+            // }
         },
         init: function() {
             this.detectDevice()
