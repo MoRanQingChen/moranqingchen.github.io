@@ -10,10 +10,6 @@
             padding: 0;
             margin: 0;
         }
-        iframe{
-            width: 100vw;
-            height: 42vw;
-        }
         li{
             width: 100px;
             height: 100px;
@@ -27,7 +23,6 @@
     </style>
 </head>
 <body>
-    <iframe src="" frameborder="0"></iframe>
     <ul is-long-ep="false" is-vid="f0042m7b51p" next-page-ctx="" front-page-ctx="" omg-id="4b392a6a26d20c22" page-next-flag="false" page-front-flag="false" class="slider_box" dt-scroll="">
         <li class="item   " onclick='play("/x/m/play?cid=mzc00200opqzg5p&amp;vid=i0042znd9iv",1)'>
             <span class="text">1</span>
@@ -84,9 +79,39 @@
             <span class="item_imgtag"><img src="https://vfiles-raw.gtimg.cn/vupload/20201015/tag_pre_x2.png" alt="预-3.0">
           </span></a>
         </li></ul>
+        
+         <ul>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/c0042hfoqb1.html')">0</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/y0042kqssqs.html')">1</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/z0042jurtuw.html')">2</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/w0042gy7bpd.html')">3</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/h0042fbu9nu.html')">4</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/k0042pc4ijv.html')">5</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/t0042guyvpq.html')">6</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/j00420oe8pk.html')">7</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/g0042f74osf.html')">8</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/t0042moxwkc.html')">9</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/r0042yy9z6f.html')">10</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/w0042nl0dp5.html')">11</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/v00428k9kve.html')">12</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/r0042o4y89e.html')">13</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/c0042dpddmw.html')">14</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/c00425gq4r3.html')">15</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/z00427qxykh.html')">16</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/o0042wsqcas.html')">17</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/i0042i82bmw.html')">18</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/z0042jtfyxc.html')">19</li>
+          <li onclick="play('https://v.qq.com/x/cover/mzc00200wuuk4tu/k00423x9yj8.html')">20</li>
+         </ul>
     <script>
         function play(url,index){
-            document.querySelector('iframe').src = url.replace("/x/m/play?","https://jx.parwix.com:4433/player/analysis.php?https://m.v.qq.com/play.html?")
+          if(url.indexOf('http')===-1){
+window.open(url.replace("/x/m/play?","https://jx.parwix.com:4433/player/analysis.php?https://m.v.qq.com/play.html?"))
+          }else{
+window.open("https://jx.parwix.com:4433/player/analysis.php?"+url)
+          }
+            
+            
             document.title = `第${index}集——老江，请多指教`
         }
     </script>
